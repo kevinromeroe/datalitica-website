@@ -17,9 +17,9 @@
     --font-primary: 'Roboto', sans-serif;
 
     /* Espaciado y Sombras */
-    --spacing-lg: 80px;
-    --spacing-md: 40px;
-    --spacing-sm: 20px;
+    --spacing-lg: 60px;
+    --spacing-md: 30px;
+    --spacing-sm: 15px;
     --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
     --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
     --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
@@ -50,7 +50,7 @@ h1, h2, h3, h4 {
     color: var(--color-primary-dark);
 }
 h1 { font-size: 3rem; max-width: 800px; }
-h2 { font-size: 2.2rem; text-align: center; margin-bottom: var(--spacing-md); }
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: var(--spacing-md); color: var(--color-primary-dark); }
 .subtitle {
     font-size: 1.25rem;
     color: var(--color-text-dark);
@@ -75,9 +75,11 @@ h2 { font-size: 2.2rem; text-align: center; margin-bottom: var(--spacing-md); }
 }
 nav.container { display: flex; justify-content: space-between; align-items: center; }
 .logo {
-    height: 70px; /* Tamaño aumentado para mayor presencia */
-    width: auto;  /* Mantiene la proporción */
-    transition: height 0.3s ease; /* Transición suave al cambiar de tamaño */
+    height: auto;
+    max-height: 80px; /* Altura máxima controlada */
+    max-width: 200px; /* Permitir más ancho */
+    width: auto;
+    transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -173,7 +175,17 @@ nav.container { display: flex; justify-content: space-between; align-items: cent
     box-shadow: var(--shadow-md);
     border-top-color: var(--color-secondary-accent);
 }
-.card-icon { font-size: 3.5rem; margin-bottom: 25px; display: block; color: var(--color-secondary-accent); }
+.card-icon { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 25px; 
+    color: var(--color-secondary-accent); 
+}
+.card-icon svg {
+    width: 48px;
+    height: 48px;
+}
 .service-card h3, .benefit-item h4 { font-size: 1.5rem; margin-bottom: 15px; }
 
 /* Caso de Uso */
