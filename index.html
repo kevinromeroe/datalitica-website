@@ -3,192 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Previa de Diseño - Datalítica Colombia SAS</title>
     
-    <title>Inteligencia Artificial para Empresas Colombia | Consultoría Analítica de Datos | Datalítica</title>
-    
-    <meta name="description" content="Transformamos tus datos en crecimiento de ventas. Consultoría en Inteligencia Artificial, Business Intelligence y Análisis Predictivo para ejecutivos y empresarios en Colombia. Agenda tu sesión gratuita.">
-    
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= VARIABLES Y RESET ================= */
+        :root {
+            --color-primary-dark: #001F3F; /* Azul Marino Oscuro */
+            --color-secondary-accent: #1DA1F2; /* Azul Eléctrico/Cian */
+            --color-neutral-light: #F2F2F2; /* Gris Claro */
+            --color-text-dark: #333333; /* Texto Principal */
+            --color-text-light: #FFFFFF; /* Texto en fondos oscuros */
+            --color-growth-accent: #2ECC71; /* Verde Esmeralda */
+            --font-primary: 'Roboto', sans-serif;
+            --spacing-lg: 80px;
+            --spacing-md: 40px;
+            --spacing-sm: 20px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-primary); line-height: 1.6; color: var(--color-text-dark); background-color: var(--color-text-light); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-sm); }
+        .section-spacing { padding: var(--spacing-lg) 0; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ================= TIPOGRAFÍA ================= */
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; margin-bottom: var(--spacing-sm); color: var(--color-primary-dark); }
+        h1 { font-size: 3rem; max-width: 800px; }
+        h2 { font-size: 2.2rem; text-align: center; margin-bottom: var(--spacing-md); }
+        .subtitle { font-size: 1.25rem; color: var(--color-text-dark); margin-bottom: var(--spacing-md); max-width: 700px; }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 2rem; }
+
+        /* ================= HEADER Y NAVEGACIÓN ================= */
+        .sticky-header { background-color: var(--color-text-light); border-bottom: 1px solid #e0e0e0; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav.container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 50px; } /* Ajustado para la vista previa */
+        .nav-links { list-style: none; display: flex; align-items: center; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--color-primary-dark); font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--color-secondary-accent); }
+        .menu-toggle { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; }
+
+        /* ================= BOTONES (CTAs) ================= */
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; text-align: center; font-size: 0.9rem;}
+        .btn-primary-cta, .btn-huge-cta { background-color: var(--color-secondary-accent); color: var(--color-text-light); box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3); }
+        .btn-primary-cta:hover, .btn-huge-cta:hover { background-color: #0c8ce0; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(29, 161, 242, 0.5); }
+        .btn-secondary-cta { background-color: transparent; color: var(--color-secondary-accent); border: 2px solid var(--color-secondary-accent); }
+        .btn-secondary-cta:hover { background-color: var(--color-secondary-accent); color: var(--color-text-light); }
+        .btn-header-cta { padding: 10px 20px; font-size: 0.85rem; }
+        .btn-huge-cta { font-size: 1.2rem; padding: 18px 40px; }
+
+        /* ================= HERO SECTION ================= */
+        .hero { background: linear-gradient(135deg, var(--color-neutral-light) 0%, #ffffff 100%); min-height: 700px; display: flex; align-items: center; position: relative; overflow: hidden; }
+        .hero-container { display: flex; align-items: center; justify-content: space-between; }
+        .hero-content { flex: 1; padding-right: var(--spacing-md); z-index: 2; }
+        .hero-visual { flex: 1; position: relative; z-index: 1; }
+        .hero-visual img { border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: perspective(1000px) rotateY(-10deg) rotateX(5deg); transition: transform 0.5s ease; }
+        .hero-visual img:hover { transform: perspective(1000px) rotateY(-5deg) rotateX(2deg); }
+
+        /* ================= SECCIONES GENERALES ================= */
+        .bg-light { background-color: var(--color-neutral-light); }
+        .bg-dark { background-color: var(--color-primary-dark); color: var(--color-text-light); }
+        .bg-dark h2, .bg-dark p { color: var(--color-text-light); }
+        
+        /* Servicios Grid */
+        .service-grid, .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card, .benefit-item { background-color: var(--color-text-light); padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; border-top: 4px solid transparent; }
+        .service-card:hover, .benefit-item:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-top-color: var(--color-secondary-accent); }
+        .card-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+
+        /* Caso de Uso */
+        .case-study-container { display: flex; align-items: center; gap: var(--spacing-lg); }
+        .case-study-content { flex: 1; }
+        .case-study-visual { flex: 1; }
+        .case-study-visual img { border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+        /* Proceso */
+        .process-steps { display: flex; justify-content: space-between; text-align: center; gap: 30px; }
+        .step { position: relative; flex: 1; padding: 30px 20px; background: #fff; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .step-number { display: inline-block; width: 40px; height: 40px; line-height: 40px; background: var(--color-secondary-accent); color: #fff; border-radius: 50%; font-weight: bold; margin-bottom: 15px; }
+        
+        /* Equipo */
+        .team-visual img { border-radius: 15px; width: 100%; height: 400px; object-fit: cover; opacity: 0.8; mix-blend-mode: luminosity;}
+
+        /* Formulario */
+        .contact-form { max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .form-group { margin-bottom: 20px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: var(--font-primary); transition: border-color 0.3s; }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--color-secondary-accent); }
+        .btn-submit { width: 100%; border: none; cursor: pointer; font-size: 1rem; }
+
+        /* Footer */
+        .footer { background-color: #00152e; padding-top: 60px; color: #aab2bd; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; }
+        .footer-logo .logo-footer { height: 40px; filter: brightness(0) invert(1); }
+        .footer h4 { color: var(--color-text-light); margin-bottom: 20px; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer a { color: #aab2bd; text-decoration: none; transition: color 0.3s; }
+        .footer a:hover { color: var(--color-secondary-accent); }
+        .copyright { text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.5rem; }
+            .hero-container, .case-study-container, .process-steps { flex-direction: column; }
+            .hero-content, .hero-visual, .case-study-content, .case-study-visual { width: 100%; padding-right: 0; }
+            .hero-visual { margin-top: 40px; order: -1; }
+            .hero-content { text-align: center; }
+            .subtitle { margin: 0 auto var(--spacing-md); }
+            .step { margin-bottom: 20px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Menú móvil simplificado para la vista previa */
+            .menu-toggle { display: block; }
+            .hero { min-height: auto; padding: 100px 0 60px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
 <body>
     <header class="sticky-header">
         <nav class="container">
-            <img src="assets/img/logo.png" alt="Datalítica Colombia SAS" class="logo">
+            <img src="https://placehold.co/200x50/001F3F/ffffff?text=DATAL%C3%8DTICA+LOGO" alt="Datalítica Colombia SAS" class="logo">
             <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#hero">Inicio</a></li>
                 <li><a href="#que-hacemos">Servicios</a></li>
-                <li><a href="#contacto-form">Contacto</a></li>
-                <li><a href="#contacto-form" class="btn btn-header-cta">Agenda Sesión Gratuita</a></li>
+                <li><a href="#caso-uso">Casos de Uso</a></li>
+                <li><a href="#contacto-form" class="btn btn-primary-cta btn-header-cta">Agenda Sesión Gratuita</a></li>
             </ul>
             <button class="menu-toggle">☰</button>
         </nav>
     </header>
 
-    <section id="hero" class="hero section-spacing">
-        <div class="container hero-content">
-            <h1>Impulsa tus Ventas y tu Negocio con Inteligencia Artificial y Datos.</h1>
-            <p class="subtitle">Convertimos la complejidad de tus datos en estrategias claras que **disparan tus resultados**. Enfocado en ejecutivos, sin tecnicismos.</p>
-            
-            <a href="#contacto-form" class="btn btn-primary-cta">
-                Agenda una sesión gratuita con nosotros.
-            </a>
-            
+    <section id="hero" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Impulsa tus Ventas y tu Negocio con Inteligencia Artificial y Datos.</h1>
+                <p class="subtitle">Convertimos la complejidad de tus datos en estrategias claras que <strong>disparan tus resultados</strong>. Enfocado en ejecutivos, sin tecnicismos innecesarios.</p>
+                <div class="hero-ctas">
+                    <a href="#contacto-form" class="btn btn-primary-cta">Agenda una sesión gratuita</a>
+                </div>
+            </div>
             <div class="hero-visual">
-                [Ilustración 3D o Imagen de Stock de IA Avanzada/Analítica]
+                <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Inteligencia Artificial y Datos">
             </div>
         </div>
     </section>
-    
-    <a href="#contacto-form" class="mobile-sticky-cta">
-        Impulsa tus Ventas →
-    </a>
 
-    <section id="que-hacemos" class="services section-spacing bg-light">
+    <section id="que-hacemos" class="section-spacing bg-light">
         <div class="container">
-            <h2>Más Allá de los Datos: Soluciones Inteligentes para tu Negocio.</h2>
+            <h2>Más Allá de los Datos: Soluciones Inteligentes.</h2>
             <div class="service-grid">
                 <div class="service-card">
+                    <span class="card-icon">📊</span>
                     <h3>Consultoría Analítica Avanzada</h3>
                     <p>Transformamos datos brutos en *insights* accionables que te muestran el camino para aumentar ventas y eficiencias.</p>
                 </div>
                 <div class="service-card">
+                    <span class="card-icon">🤖</span>
                     <h3>Inteligencia Artificial para Empresas</h3>
-                    <p>Implementamos modelos de **análisis predictivo para negocios** que anticipan tendencias y optimizan procesos clave.</p>
+                    <p>Implementamos modelos predictivos que anticipan tendencias y optimizan procesos clave automáticamente.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Business Intelligence (BI) y Dashboards Empresariales</h3>
-                    <p>Creamos **dashboards empresariales** intuitivos para una visión 360° en tiempo real, facilitando la toma de decisiones en Bogotá y toda Colombia.</p>
+                    <span class="card-icon">📈</span>
+                    <h3>Business Intelligence (BI)</h3>
+                    <p>Creamos dashboards intuitivos para una visión 360° en tiempo real, facilitando la toma de decisiones estratégicas.</p>
                 </div>
             </div>
-             <div class="text-center mt-4">
-                <a href="#contacto-form" class="btn btn-secondary-cta">¿Quieres saber cuál aplica a tu caso? ¡Hablemos!</a>
+            <div class="text-center mt-4">
+                <a href="#contacto-form" class="btn btn-secondary-cta">¿Cuál aplica a tu caso? ¡Hablemos!</a>
             </div>
         </div>
     </section>
 
-    <section id="beneficios" class="benefits section-spacing">
+    <section class="section-spacing">
         <div class="container">
-            <h2>Resultados Concretos: ¿Qué Ganará tu Negocio con Datalítica?</h2>
+            <h2>Resultados Concretos: ¿Qué Ganas con Datalítica?</h2>
             <div class="benefits-grid">
                 <div class="benefit-item">
+                    <span class="card-icon">🧠</span>
                     <h4>Decisiones más Inteligentes</h4>
-                    <p>Deja de adivinar. Empieza a decidir con la certeza que solo la **consultoría analítica de datos** puede darte.</p>
+                    <p>Deja de adivinar. Empieza a decidir con la certeza que solo los datos pueden darte.</p>
                 </div>
                 <div class="benefit-item">
+                    <span class="card-icon">💰</span>
                     <h4>Aumento Real de Ventas</h4>
-                    <p>Identifica clientes clave y optimiza tu estrategia de mercado para un crecimiento medible.</p>
+                    <p>Identifica oportunidades de mercado y optimiza tus estrategias para un crecimiento medible.</p>
                 </div>
                 <div class="benefit-item">
-                    <h4>Claridad en la Información</h4>
-                    <p>Accede a la información crucial sin tecnicismos gracias a nuestros **dashboards empresariales**.</p>
+                    <span class="card-icon">👁️</span>
+                    <h4>Claridad sin Tecnicismos</h4>
+                    <p>Accede a la información crucial en un lenguaje de negocios que entiendes.</p>
                 </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="#caso-uso" class="btn btn-link">Ver Caso de Uso (Dashboard de Marketing) →</a>
             </div>
         </div>
     </section>
 
-    <section id="caso-uso" class="case-study section-spacing bg-light">
-        <div class="container">
+    <section id="caso-uso" class="section-spacing bg-light">
+        <div class="container case-study-container">
             <div class="case-study-content">
                 <h2>Ejemplo Práctico: Tu Dashboard de Marketing que Impulsa Ventas.</h2>
-                <p>¿Cuánto estás invirtiendo y cuál es el retorno real? Diseñamos dashboards personalizados que consolidan todas tus métricas en una sola pantalla. Identifica tus canales más rentables y optimiza tus campañas al instante.</p>
-                <a href="#contacto-form" class="btn btn-primary-cta">
-                    Descubre cómo aplicarlo a tu negocio - Agenda una demo.
-                </a>
+                <p class="subtitle">¿Cuánto inviertes y cuál es el retorno real? Muchos ejecutivos están a ciegas. Diseñamos dashboards que consolidan todas tus métricas en una pantalla. Identifica canales rentables y optimiza campañas al instante.</p>
+                <a href="#contacto-form" class="btn btn-primary-cta">Descubre cómo aplicarlo - Agenda demo</a>
             </div>
             <div class="case-study-visual">
-                [Mockup de un Dashboard Moderno de Marketing]
+                <img src="https://placehold.co/600x400/f0f2f5/1da1f2?text=Mockup+Dashboard+Marketing+BI" alt="Dashboard de Marketing">
             </div>
         </div>
     </section>
 
-    <section id="proceso" class="process section-spacing">
+    <section class="section-spacing">
         <div class="container">
-            <h2>Tu Camino Hacia el Crecimiento con Datos: Nuestro Proceso Simple.</h2>
+            <h2>Nuestro Proceso Simple Hacia el Crecimiento.</h2>
             <div class="process-steps">
                 <div class="step">
-                    <h4>1. Entendemos tus Dolores</h4>
-                    <p>Sesión de diagnóstico gratuita para comprender tus desafíos y objetivos.</p>
+                    <span class="step-number">1</span>
+                    <h4>Entendemos tus Dolores</h4>
+                    <p>Diagnóstico gratuito para comprender tus desafíos y objetivos de negocio.</p>
                 </div>
                 <div class="step">
-                    <h4>2. Propuesta de Solución (No Técnica)</h4>
-                    <p>Diseñamos y explicamos la solución de IA o analítica que te generará crecimiento.</p>
+                    <span class="step-number">2</span>
+                    <h4>Propuesta de Solución</h4>
+                    <p>Diseñamos la estrategia de analítica e IA que te generará crecimiento, sin jerga.</p>
                 </div>
                 <div class="step">
-                    <h4>3. Implementación y Resultados Medibles</h4>
-                    <p>Ejecutamos la solución, asegurando que veas el impacto directo en tus ventas y decisiones.</p>
+                    <span class="step-number">3</span>
+                    <h4>Resultados Medibles</h4>
+                    <p>Ejecutamos y te entregamos herramientas para ver el impacto en tus ventas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="equipo" class="team section-spacing bg-dark text-white">
-        <div class="container">
+    <section class="section-spacing bg-dark">
+        <div class="container text-center">
             <h2>Expertos en Datos e IA al Servicio de tu Crecimiento.</h2>
-            <p>En Datalítica, contamos con un equipo de especialistas en **análisis predictivo para negocios** y **business intelligence Bogotá**, con un solo objetivo: tu éxito.</p>
-            <div class="text-center mt-4">
-                <a href="#contacto-form" class="btn btn-secondary-cta">Conoce a nuestros expertos - Agendemos una reunión.</a>
-            </div>
-             <div class="team-visual">[Imágenes de Stock: Equipo diverso y profesional]</div>
+            <p class="subtitle" style="color: #aab2bd;">Un equipo de especialistas apasionados por transformar negocios con datos.</p>
+        </div>
+        <div class="container team-visual mt-4">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Equipo Datalítica">
         </div>
     </section>
 
-    <section class="final-cta section-spacing text-center">
+    <section class="section-spacing text-center">
         <div class="container">
             <h2>¿Listo para Potenciar tu Negocio con Inteligencia Artificial?</h2>
-            <p>No dejes que tus datos duerman. Transfórmalos en tu activo más valioso.</p>
-            <a href="#contacto-form" class="btn btn-huge-cta">
-                Agenda tu Sesión Estratégica Gratuita Hoy.
-            </a>
+            <p class="subtitle">No dejes que tus datos duerman. Transfórmalos en tu activo más valioso hoy mismo.</p>
+            <a href="#contacto-form" class="btn btn-huge-cta">Agenda tu Sesión Estratégica Gratuita</a>
         </div>
     </section>
 
-    <section id="contacto-form" class="contact-form-section section-spacing bg-light">
+    <section id="contacto-form" class="section-spacing bg-light">
         <div class="container">
-            <h2>Hablemos de tus Datos y tu Crecimiento.</h2>
-            <p>Un experto de Datalítica se pondrá en contacto contigo para entender tus necesidades. La agenda se coordina vía email (no usamos Calendly).</p>
-            
-            <form action="https://www.hostinger.com/es" method="POST" class="contact-form">
-                <input type="text" name="nombre" placeholder="Nombre Completo" required>
-                <input type="email" name="email" placeholder="Correo Electrónico" required>
-                <input type="tel" name="telefono" placeholder="Teléfono" required>
-                <input type="text" name="empresa" placeholder="Empresa" required>
-                <textarea name="mensaje" placeholder="¿En qué te gustaría que te ayudáramos con tus datos?" rows="5" required></textarea>
-                <button type="submit" class="btn btn-submit">Enviar Solicitud</button>
-            </form>
-            <small class="privacy-note">Al enviar, aceptas nuestra <a href="privacidad.html">Política de Privacidad</a>.</small>
+            <div class="text-center mb-5">
+                <h2>Hablemos de tus Datos y tu Crecimiento.</h2>
+                <p class="subtitle">Agenda una sesión con un experto. La coordinación se realiza vía email.</p>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre Completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Correo Electrónico Empresarial" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="telefono" placeholder="Teléfono de Contacto" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="empresa" placeholder="Nombre de tu Empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="mensaje" placeholder="¿Cuál es tu principal reto con los datos actualmente?" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary-cta btn-submit">Solicitar Mi Sesión Gratuita</button>
+                </form>
+                <p class="text-center mt-3" style="font-size: 0.85rem; color: #666;">Al enviar, aceptas nuestra política de privacidad.</p>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-logo">
-                 <img src="assets/img/logo.png" alt="Datalítica Colombia SAS" class="logo-footer">
+                 <img src="https://placehold.co/150x40/ffffff/001F3F?text=DATAL%C3%8DTICA" alt="Datalítica" class="logo-footer">
                  <p class="mt-2">Transformamos datos en decisiones que generan crecimiento.</p>
             </div>
             <div class="footer-links">
                 <h4>Navegación</h4>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#hero">Inicio</a></li>
                     <li><a href="#que-hacemos">Servicios</a></li>
-                    <li><a href="#equipo">Experiencia</a></li>
+                    <li><a href="#caso-uso">Casos de Uso</a></li>
                     <li><a href="#contacto-form">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
                 <h4>Contacto</h4>
                 <p>Bogotá, Colombia</p>
-                <p>Email: contacto@[tu-dominio].com.co</p>
-                </div>
+                <p>Email: contacto@datalitica.com.co</p>
+            </div>
             <div class="footer-legal">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
                 </ul>
             </div>
         </div>
@@ -196,7 +319,5 @@
             <p>© 2025 Datalítica Colombia SAS — Todos los derechos reservados</p>
         </div>
     </footer>
-    
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
