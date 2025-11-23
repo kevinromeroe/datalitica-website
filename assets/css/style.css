@@ -74,7 +74,17 @@ h2 { font-size: 2.2rem; text-align: center; margin-bottom: var(--spacing-md); }
     box-shadow: var(--shadow-sm);
 }
 nav.container { display: flex; justify-content: space-between; align-items: center; }
-.logo { height: 50px; width: auto; }
+.logo {
+    height: 70px; /* Tamaño aumentado para mayor presencia */
+    width: auto;  /* Mantiene la proporción */
+    transition: height 0.3s ease; /* Transición suave al cambiar de tamaño */
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 60px; /* Un poco más pequeño en móvil para equilibrar */
+    }
+}
 .nav-links { list-style: none; display: flex; align-items: center; gap: 25px; }
 .nav-links a {
     text-decoration: none;
