@@ -20,7 +20,109 @@
     --spacing-sm: 20px;
 }
 
-/* Reset básico */
+
+/* Nuevo CSS para la página de Servicios */
+
+/* Estilo para el banner de servicios más pequeño en el fondo oscuro */
+.bg-dark .h1-small {
+    font-size: 2.5rem; /* Título un poco más pequeño que el Hero H1 */
+    max-width: 100%;
+    margin-bottom: var(--spacing-sm);
+}
+.bg-dark .subtitle {
+    color: var(--color-neutral-light);
+}
+
+/* Diseño de los bloques de detalle de servicio */
+.service-detail-block {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+}
+
+.service-detail-block:nth-child(even) {
+    /* Diseño alterno para secciones pares (ej. texto a la izquierda, ícono a la derecha) */
+    flex-direction: row-reverse;
+}
+
+.service-icon {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    background-color: var(--color-secondary-accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--color-text-light);
+    box-shadow: 0 5px 20px rgba(29, 161, 242, 0.3);
+}
+
+.service-content {
+    flex: 1;
+    padding-right: var(--spacing-md);
+}
+
+.service-content h3 {
+    color: var(--color-primary-dark);
+    font-size: 1.75rem;
+    margin-top: 0;
+}
+
+.service-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: var(--spacing-sm);
+}
+
+.service-content li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+    color: var(--color-text-dark);
+}
+
+.service-content li::before {
+    content: "✓"; /* O un checkmark más tecnológico */
+    color: var(--color-growth-accent);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Estilo para el CTA sutil en medio de la sección */
+.btn-link-accent {
+    color: var(--color-secondary-accent);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s;
+}
+.btn-link-accent:hover {
+    border-bottom: 2px solid var(--color-secondary-accent);
+}
+
+/* Responsividad para Servicios */
+@media (max-width: 768px) {
+    .service-detail-block, 
+    .service-detail-block:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+    }
+    .service-icon {
+        margin-bottom: var(--spacing-sm);
+    }
+    .service-content {
+        padding-right: 0;
+    }
+    .service-content ul {
+        text-align: left;
+    }
+}/* Reset básico */
 * {
     margin: 0;
     padding: 0;
