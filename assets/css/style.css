@@ -639,11 +639,15 @@ nav.container {
 /* Hero: imagen horizontal de fondo con texto superpuesto  */
 /* ======================================================= */
 /* Usamos la imagen `assets/img/Mopckup.png` como fondo del hero.
-   Colocamos un overlay degradado para mantener legibilidad del texto
-   y ocultamos la imagen inline dentro de `.hero-visual` para evitar duplicados. */
+   Implementamos un pseudo-elemento ::before que muestra la misma imagen
+   pero con `filter: blur()` y un `clip-path` para que el lado izquierdo
+   aparezca borroso. Un pseudo-elemento ::after añade un overlay degradado
+   (blanco -> transparente) para asegurar legibilidad del texto sobre el
+   lado borroso. En móviles el efecto se desactiva y se muestra la
+   imagen inline (estructura apilada). */
 .hero {
     position: relative;
-    background-image: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.0) 60%), url('../img/Mopckup.png');
+    background-image: url('../img/Mopckup.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -653,35 +657,67 @@ nav.container {
     align-items: center;
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/Mopckup.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    filter: blur(10px) brightness(0.98);
+    transform: scale(1.04);
+    /* Mostrar solo el lado izquierdo borroso (ajusta 55% según prefieras)
+       El polígono cubre desde la izquierda hasta aprox. 55% del ancho */
+    clip-path: polygon(0 0, 55% 0, 55% 100%, 0% 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0.0) 60%);
+    z-index: 2;
+    pointer-events: none;
+}
+
 .hero-container {
-    /* Mantener contenido centrado y a la izquierda para dejar la imagen al lado derecho */
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: var(--spacing-md);
+    width: 100%;
+    position: relative;
+    z-index: 3; /* colocar el contenido por encima de los pseudo elementos */
 }
 
 .hero-content {
     flex: 0 0 55%;
-    z-index: 2;
 }
 
 .hero-visual {
-    /* Ocultamos la imagen inline para que no se muestre junto al background */
+    /* Mantener la imagen inline oculta en desktop (evita duplicados). */
     display: none;
 }
 
-/* Asegurar buen contraste del texto */
 .hero h1,
 .hero .subtitle {
-    color: var(--color-primary-dark);
+    color: var(--color-text-dark);
 }
 
-/* Ajustes responsivos */
+/* RESPONSIVE: desactivar pseudo-elementos y mostrar la imagen inline */
 @media (max-width: 992px) {
+    .hero::before,
+    .hero::after {
+        display: none;
+    }
+
     .hero {
-        background-position: center top;
+        background-image: none;
         padding: 60px 0;
+        min-height: auto;
     }
 
     .hero-container {
@@ -701,7 +737,6 @@ nav.container {
 
 @media (max-width: 480px) {
     .hero {
-        min-height: 420px;
         padding: 40px 0;
     }
 
