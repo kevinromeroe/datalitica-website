@@ -140,10 +140,10 @@ nav.container {
 }
 
 .logo {
-    height: 100%;
-    /* Ocupar toda la altura del contenedor */
-    max-height: 90px;
-    /* Limite razonable para desktop */
+    height: auto;
+    /* Ajuste: permitir que el logo escale naturalmente */
+    max-height: 140px;
+    /* Aumentado para mejor visibilidad en desktop */
     width: auto;
     object-fit: contain;
     /* Mantener proporción */
@@ -168,8 +168,22 @@ nav.container {
 
 @media (max-width: 768px) {
     .logo {
-        height: 60px;
-        /* Un poco más pequeño en móvil para equilibrar */
+        height: auto;
+        max-height: 90px;
+        /* Ajuste móvil: más grande que antes para mejorar legibilidad */
+    }
+}
+
+/* Footer logo: un tamaño cómodo que no desborde la sección del pie */
+.logo-footer {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .logo-footer {
+        max-height: 70px;
     }
 }
 
