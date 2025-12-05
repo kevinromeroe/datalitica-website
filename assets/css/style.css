@@ -264,6 +264,20 @@ nav.container {
     max-height: 140px;
 }
 
+/* Refuerzo: selector más específico para imágenes dentro del header
+   en caso de que la etiqueta del logo sea <img class="logo"> */
+header.sticky-header img.logo,
+.sticky-header nav.container > img.logo,
+.sticky-header .container > img.logo {
+    background: none !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: block !important;
+    max-height: 140px !important;
+}
+
 /* Centrado del logo en móvil y ajuste de header */
 @media (max-width: 768px) {
     nav.container {
