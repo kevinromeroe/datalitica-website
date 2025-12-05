@@ -966,8 +966,13 @@ nav.container {
         font-size: 2.2rem;
     }
 
-    .btn {
+    /* Solo ciertos CTAs deben ser full-width en móvil (ej. CTA grande o form submit). 
+       Evitar que todos los botones ocupen todo el ancho y repitan espacio. */
+    .hero .btn-primary-cta,
+    .btn-huge-cta,
+    .btn-submit {
         width: 100%;
+        display: block;
     }
 
     .btn-huge-cta {
