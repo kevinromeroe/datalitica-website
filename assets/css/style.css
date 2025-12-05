@@ -34,7 +34,7 @@
 
 
 /* 2. RESET Y ESTILOS BASE */
-* {
+/* 2. RESET Y ESTILOS BASE */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -617,6 +617,23 @@ nav.container {
     max-height: 100px;
     height: auto;
     filter: brightness(0) invert(1);
+    margin-bottom: 20px;
+}
+
+/* Footer-specific overrides: keep footer logo visible despite liquid styles */
+.footer .footer-logo {
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+.footer .footer-logo::before,
+.footer .footer-logo::after {
+    display: none !important;
+}
+.footer .logo-footer {
+    filter: none !important;
+    max-height: 100px;
+    height: auto;
     margin-bottom: 20px;
 }
 
