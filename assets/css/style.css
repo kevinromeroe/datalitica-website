@@ -126,7 +126,7 @@ h2 {
 .sticky-header {
     background-color: var(--color-text-light);
     border-bottom: 1px solid var(--color-border);
-    padding: 15px 0;
+    padding: 8px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -168,9 +168,9 @@ nav.container {
 
 @media (max-width: 768px) {
     .logo {
-        height: auto;
-        max-height: 90px;
-        /* Ajuste móvil: más grande que antes para mejorar legibilidad */
+        height: 120px;
+        max-height: 120px;
+        /* Ajuste móvil: usar la altura fija que funcionó en Chrome devtools */
     }
 }
 
@@ -519,7 +519,8 @@ nav.container {
 }
 
 .logo-footer {
-    height: 45px;
+    max-height: 100px;
+    height: auto;
     filter: brightness(0) invert(1);
     margin-bottom: 20px;
 }
@@ -625,6 +626,11 @@ nav.container {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+    }
+
+    /* Header más compacto en móvil para que el logo sea más prominente */
+    .sticky-header {
+        padding: 6px 0;
     }
 
     .nav-links {
