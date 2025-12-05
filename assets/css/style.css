@@ -647,7 +647,7 @@ nav.container {
    imagen inline (estructura apilada). */
 .hero {
     position: relative;
-    background-image: url('../img/HeroIMG.png');
+    background-image: url('../img/Mopckup.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -661,7 +661,7 @@ nav.container {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('../img/HeroIMG.png');
+    background-image: url('../img/Mopckup.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -707,31 +707,51 @@ nav.container {
     color: var(--color-text-dark);
 }
 
-/* RESPONSIVE: desactivar pseudo-elementos y mostrar la imagen inline */
+/* RESPONSIVE: mantener fondo + pseudo-elementos en móvil y ocultar la imagen inline
+   para que el texto quede siempre encima de la imagen (más legible y profesional). */
 @media (max-width: 992px) {
-    .hero::before,
+    /* Reducir el blur y el área borrosa para móviles */
+    .hero::before {
+        display: block;
+        filter: blur(6px) brightness(0.95);
+        clip-path: polygon(0 0, 45% 0, 45% 100%, 0% 100%);
+    }
+
     .hero::after {
-        display: none;
+        display: block;
+        background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.0) 80%);
     }
 
     .hero {
-        background-image: none;
+        /* mantener la imagen de fondo (la que esté indicada en .hero) */
+        background-position: center center;
+        background-size: cover;
         padding: 60px 0;
-        min-height: auto;
+        min-height: 420px;
+    }
+
+    /* Ocultar la imagen inline para que no empuje ni tape el texto */
+    .hero-visual {
+        display: none;
     }
 
     .hero-container {
         flex-direction: column;
         text-align: center;
+        width: 100%;
+        position: relative;
+        z-index: 3;
     }
 
     .hero-content {
         width: 100%;
+        z-index: 3;
     }
 
-    .hero-visual {
-        display: block;
-        margin-top: 30px;
+    .hero h1,
+    .hero .subtitle {
+        color: #ffffff;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.45);
     }
 }
 
