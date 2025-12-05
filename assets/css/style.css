@@ -238,45 +238,13 @@ nav.container {
     height: auto;
     /* Ajuste: permitir que el logo escale naturalmente */
     max-height: 140px;
-    /* Aumentado para mejor visibilidad en desktop */
     width: auto;
     object-fit: contain;
     /* Mantener proporción */
     transition: all 0.3s ease;
-    /* Mostrar imagen dentro de un pequeño contenedor blanco */
-    display: inline-block;
-    background: #ffffff;
-    padding: 8px 14px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(2,6,23,0.06);
-    /* Evitar que el padding crezca más que la altura máxima */
-    vertical-align: middle;
+    display: block;
 }
 
-/* Restaurar apariencia normal del logo en el header (evitar el contenedor blanco) */
-.sticky-header .logo {
-    background: none !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    display: block !important;
-    vertical-align: middle;
-    max-height: 140px;
-}
-
-/* Refuerzo: selector más específico para imágenes dentro del header
-   en caso de que la etiqueta del logo sea <img class="logo"> */
-header.sticky-header img.logo,
-.sticky-header nav.container > img.logo,
-.sticky-header .container > img.logo {
-    background: none !important;
-    background-color: transparent !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    display: block !important;
-    max-height: 140px !important;
-}
 
 /* Centrado del logo en móvil y ajuste de header */
 @media (max-width: 768px) {
@@ -451,8 +419,9 @@ header.sticky-header img.logo,
 .service-grid,
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    /* permitir columnas más estrechas en móviles para evitar overflow */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
 }
 
 /* Carousel Team */
@@ -769,6 +738,29 @@ header.sticky-header img.logo,
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    /* Ajustes responsive adicionales para móviles */
+    .service-card,
+    .benefit-item {
+        padding: 24px 18px;
+    }
+
+    /* Carousel: tarjetas más anchas en móvil para evitar que se salgan */
+    .team-role-card {
+        flex: 0 0 80%;
+        padding: 20px;
+    }
+
+    .carousel-track {
+        gap: 18px;
+    }
+
+    /* Ajuste de altura de imágenes de equipo en móviles para evitar overflow */
+    .team-visual img {
+        height: auto;
+        max-height: 360px;
+        object-fit: cover;
     }
 }
 
