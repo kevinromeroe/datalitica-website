@@ -31,7 +31,7 @@
     --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
     --shadow-cta: 0 4px 15px rgba(29, 161, 242, 0.3);
-}
+
 
 /* 2. RESET Y ESTILOS BASE */
 * {
@@ -632,6 +632,83 @@ nav.container {
     .sticky-header {
         padding: 6px 0;
     }
+
+}
+
+/* ======================================================= */
+/* Hero: imagen horizontal de fondo con texto superpuesto  */
+/* ======================================================= */
+/* Usamos la imagen `assets/img/Mopckup.png` como fondo del hero.
+   Colocamos un overlay degradado para mantener legibilidad del texto
+   y ocultamos la imagen inline dentro de `.hero-visual` para evitar duplicados. */
+.hero {
+    position: relative;
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.0) 60%), url('../img/Mopckup.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    min-height: 520px;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    /* Mantener contenido centrado y a la izquierda para dejar la imagen al lado derecho */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--spacing-md);
+}
+
+.hero-content {
+    flex: 0 0 55%;
+    z-index: 2;
+}
+
+.hero-visual {
+    /* Ocultamos la imagen inline para que no se muestre junto al background */
+    display: none;
+}
+
+/* Asegurar buen contraste del texto */
+.hero h1,
+.hero .subtitle {
+    color: var(--color-primary-dark);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 992px) {
+    .hero {
+        background-position: center top;
+        padding: 60px 0;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-visual {
+        display: block;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 420px;
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+}
 
     .nav-links {
         display: none;
