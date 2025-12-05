@@ -647,7 +647,7 @@ nav.container {
    imagen inline (estructura apilada). */
 .hero {
     position: relative;
-    background-image: url('../img/Mopckup.png');
+    background-image: url('../img/HeroIMG.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -661,7 +661,7 @@ nav.container {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('../img/Mopckup.png');
+    background-image: url('../img/HeroIMG.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
