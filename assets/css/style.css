@@ -46,7 +46,12 @@
 /* Aplicado a `.service-card` y `.benefit-item`. Usa pseudo-elementos,
    gradientes y transform/opacity para mantener buen rendimiento. */
 .service-card,
-.benefit-item {
+.benefit-item,
+.team-role-card,
+.step,
+.contact-form-wrapper,
+.case-study-visual,
+.footer-logo {
     position: relative;
     overflow: hidden;
     border-radius: 15px; /* conservar radio existente */
@@ -56,7 +61,12 @@
 }
 
 .service-card::before,
-.benefit-item::before {
+.benefit-item::before,
+.team-role-card::before,
+.step::before,
+.contact-form-wrapper::before,
+.case-study-visual::before,
+.footer-logo::before {
     content: "";
     position: absolute;
     left: -20%;
@@ -72,7 +82,12 @@
 }
 
 .service-card::after,
-.benefit-item::after {
+.benefit-item::after,
+.team-role-card::after,
+.step::after,
+.contact-form-wrapper::after,
+.case-study-visual::after,
+.footer-logo::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -82,7 +97,12 @@
 }
 
 .service-card:hover,
-.benefit-item:hover {
+.benefit-item:hover,
+.team-role-card:hover,
+.step:hover,
+.contact-form-wrapper:hover,
+.case-study-visual:hover,
+.footer-logo:hover {
     transform: translateY(-8px) translateZ(0) scale(1.006);
     box-shadow: 0 22px 44px rgba(2,6,23,0.12), inset 0 -8px 26px rgba(0,0,0,0.05);
 }
@@ -94,7 +114,12 @@
     100% { transform: translateY(0) translateX(0); }
 }
 .service-card[data-animate="true"],
-.benefit-item[data-animate="true"] {
+.benefit-item[data-animate="true"],
+.team-role-card[data-animate="true"],
+.step[data-animate="true"],
+.contact-form-wrapper[data-animate="true"],
+.case-study-visual[data-animate="true"],
+.footer-logo[data-animate="true"] {
     will-change: transform;
     animation: liquid-wave 6s ease-in-out infinite;
 }
@@ -840,6 +865,7 @@ nav.container {
     }
 }
 
+@media (max-width: 768px) {
     .nav-links {
         display: none;
         position: absolute;
