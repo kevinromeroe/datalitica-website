@@ -253,6 +253,17 @@ nav.container {
     vertical-align: middle;
 }
 
+/* Restaurar apariencia normal del logo en el header (evitar el contenedor blanco) */
+.sticky-header .logo {
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+    vertical-align: middle;
+    max-height: 140px;
+}
+
 /* Centrado del logo en móvil y ajuste de header */
 @media (max-width: 768px) {
     nav.container {
@@ -761,7 +772,6 @@ nav.container {
 
 /* Mobile: centrar el contenedor blanco del logo y ajustar tamaños para pantallas estrechas */
 @media (max-width: 768px) {
-    .logo,
     .logo-footer {
         display: inline-block;
         margin: 0 auto;
@@ -773,7 +783,7 @@ nav.container {
         vertical-align: middle;
     }
 
-    /* Asegurar que el contenedor del nav centre correctamente el logo */
+    /* Asegurar que el contenedor del nav centre correctamente el logo en móviles */
     nav.container {
         justify-content: center;
     }
