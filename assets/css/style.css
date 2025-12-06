@@ -40,6 +40,10 @@
     box-sizing: border-box;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* ======================================================= */
 /* Liquid 3D - efecto sutil aplicado a tarjetas de servicio  */
 /* ======================================================= */
