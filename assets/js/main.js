@@ -11,19 +11,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Team Carousel Auto-Scroll
     const track = document.querySelector('.carousel-track');
-    if (track) {
-        let scrollAmount = 0;
-        const cardWidth = 330; // 300px width + 30px gap
+    if (track && track.parentElement) {
+        const containerWidth = track.parentElement.clientWidth;
+        const extraWidth = track.scrollWidth - containerWidth;
 
-        setInterval(() => {
-            scrollAmount += cardWidth;
+        // Solo activar el auto-scroll cuando haya overflow horizontal (desktop/tablet)
+        if (extraWidth > 40) {
+            let scrollAmount = 0;
+            const cardWidth = 330; // 300px width + 30px gap
 
-            // Si llegamos al final (aproximado), volver al inicio
-            if (scrollAmount >= track.scrollWidth - track.parentElement.clientWidth) {
-                scrollAmount = 0;
-            }
+            setInterval(() => {
+                scrollAmount += cardWidth;
 
-            track.style.transform = `translateX(-${scrollAmount}px)`;
-        }, 5000); // 5 segundos
+                // Si llegamos al final (aproximado), volver al inicio
+                if (scrollAmount >= extraWidth) {
+                    scrollAmount = 0;
+                }
+
+                track.style.transform = `translateX(-${scrollAmount}px)`;
+            }, 5000); // 5 segundos
+        } else {
+            track.style.transform = 'none';
+        }
     }
 });

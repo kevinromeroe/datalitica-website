@@ -750,14 +750,24 @@ nav.container {
         padding: 24px 18px;
     }
 
-    /* Carousel: tarjetas más anchas en móvil para evitar que se salgan */
-    .team-role-card {
-        flex: 0 0 80%;
-        padding: 20px;
+    /* Carousel: apilar tarjetas en móvil para que sean visibles sin scroll lateral */
+    .carousel-container {
+        overflow: visible;
     }
 
     .carousel-track {
         gap: 18px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        transform: none !important;
+    }
+
+    .team-role-card {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 420px;
+        padding: 20px;
     }
 
     /* Ajuste de altura de imágenes de equipo en móviles para evitar overflow */
