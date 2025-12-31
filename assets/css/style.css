@@ -31,16 +31,12 @@
     --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
     --shadow-cta: 0 4px 15px rgba(29, 161, 242, 0.3);
-
-
-/* 2. RESET Y ESTILOS BASE */
-/* 2. RESET Y ESTILOS BASE */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
+/* 2. RESET Y ESTILOS BASE */
 *, *::before, *::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -228,8 +224,16 @@ h2 {
     padding: 8px 0;
     position: sticky;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: var(--shadow-sm);
+}
+
+.sticky-header nav.container {
+    width: 100%;
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
 }
 
 nav.container {
@@ -250,11 +254,13 @@ nav.container {
 }
 
 
-/* Centrado del logo en móvil y ajuste de header */
+/* Ajustes del header en móvil */
 @media (max-width: 768px) {
     nav.container {
-        justify-content: center;
-        /* Centrar logo en móvil */
+        justify-content: space-between;
+        width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
     }
 
     .menu-toggle {
@@ -430,28 +436,48 @@ nav.container {
 
 /* Carousel Team */
 .carousel-container {
-    overflow: hidden;
     width: 100%;
     position: relative;
     padding: 20px 0;
 }
 
 .carousel-track {
-    display: flex;
-    gap: 30px;
-    transition: transform 0.5s ease-in-out;
-    width: max-content;
-    /* Permitir que el track sea tan ancho como necesite */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+    width: 100%;
 }
 
 .team-role-card {
-    flex: 0 0 300px;
-    /* Ancho fijo para las tarjetas en el carrusel */
-    background: rgba(255, 255, 255, 0.05);
-    /* Fondo sutil para legibilidad */
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    min-height: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-role-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(2,6,23,0.25);
+}
+
+.role-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    background: rgba(255,255,255,0.08);
+}
+
+.role-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-text-light);
 }
 
 .service-card,
@@ -750,24 +776,17 @@ nav.container {
         padding: 24px 18px;
     }
 
-    /* Carousel: apilar tarjetas en móvil para que sean visibles sin scroll lateral */
-    .carousel-container {
-        overflow: visible;
-    }
-
     .carousel-track {
+        grid-template-columns: 1fr;
         gap: 18px;
         width: 100%;
-        flex-direction: column;
-        align-items: center;
-        transform: none !important;
     }
 
     .team-role-card {
-        flex: 1 1 auto;
         width: 100%;
         max-width: 420px;
         padding: 20px;
+        margin: 0 auto;
     }
 
     /* Ajuste de altura de imágenes de equipo en móviles para evitar overflow */
