@@ -848,30 +848,15 @@ nav.container {
     align-items: center;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: var(--hero-image-desktop);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: cover;
-    filter: blur(10px) brightness(0.98);
-    transform: scale(1.04);
-    /* Mostrar solo el lado izquierdo borroso (ajusta 55% según prefieras)
-       El polígono cubre desde la izquierda hasta aprox. 55% del ancho */
-    clip-path: polygon(0 0, 55% 0, 55% 100%, 0% 100%);
-    z-index: 1;
-    pointer-events: none;
-}
-
+.hero::before,
 .hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0.0) 60%);
-    z-index: 2;
+    background: transparent;
+    z-index: 1;
     pointer-events: none;
+    display: none;
 }
 
 .hero-container {
@@ -918,18 +903,13 @@ nav.container {
 @media (max-width: 992px) {
     /* Móvil: blur vertical (parte superior) para adaptar lectura en pantallas estrechas */
     .hero::before {
-        display: block;
-        /* menor blur en móviles */
-        filter: blur(6px) brightness(0.95);
-        /* clip-path vertical: cubrir la parte superior (45% de la altura) */
-        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-        background-image: var(--hero-image-mobile);
+        display: none;
+        background: transparent;
     }
 
     .hero::after {
-        display: block;
-        /* overlay vertical para garantizar contraste en la parte superior */
-        background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.0) 60%);
+        display: none;
+        background: transparent;
     }
 
     .hero {
