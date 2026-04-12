@@ -4,36 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#001F3F">
 
     <title>Contacto Datalítica Colombia | Agenda tu Consultoría en Analítica avanzada</title>
 
     <meta name="description"
         content="Contáctanos para agendar tu sesión estratégica gratuita con expertos en consultoría analítica de datos e inteligencia artificial para empresas en Colombia.">
 
+    <link rel="canonical" href="https://datalitica.com.co/contacto.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contacto – Datalítica Colombia">
+    <meta property="og:description" content="Agenda tu sesión estratégica gratuita con expertos en consultoría analítica de datos e IA para empresas en Colombia.">
+    <meta property="og:url" content="https://datalitica.com.co/contacto.html">
+    <meta property="og:image" content="https://datalitica.com.co/assets/img/favicon-512.png">
+    <meta property="og:site_name" content="Datalítica Colombia SAS">
+    <meta property="og:locale" content="es_CO">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Contacto – Datalítica Colombia">
+    <meta name="twitter:description" content="Agenda tu sesión estratégica gratuita con expertos en analítica e IA en Colombia.">
+
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
+    <a href="#contacto-content" class="skip-link">Ir al contenido principal</a>
     <header class="sticky-header">
         <nav class="container">
             <img src="assets/img/logo.png" alt="Datalítica Colombia SAS" class="logo">
-            <ul class="nav-links">
+            <ul class="nav-links" role="navigation" aria-label="Navegación principal">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="index.html#que-hacemos">Servicios</a></li>
                 <li><a href="index.html#contacto-form">Contacto</a></li>
                 <li class="btn-header-wrap"><a href="index.html#contacto-form" class="btn btn-header-cta">Agenda Sesión
                         Gratuita</a></li>
             </ul>
-            <button class="menu-toggle">☰</button>
+            <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
         </nav>
     </header>
 
-    <section class="contact-hero section-spacing bg-light">
+    <main>
+    <section id="contacto-content" class="contact-hero section-spacing bg-light">
         <div class="container text-center">
             <h1 class="h2">Transforma tus Datos en Crecimiento. Es Hora de Hablar.</h1>
             <p class="subtitle">Agenda tu sesión  gratuita con nuestro equipo. Entenderemos tus necesidades y
@@ -59,10 +84,10 @@
     <section class="contact-visual section-spacing">
         <div class="container contact-image-placeholder">
             <img src="assets/img/HeroSecundaria.jpg"
-                alt="Reunión ejecutiva de análisis de datos" style="border-radius: 15px; box-shadow: var(--shadow-lg);">
+                alt="Reunión ejecutiva de análisis de datos" loading="lazy" style="border-radius: 15px; box-shadow: var(--shadow-lg);">
         </div>
     </section>
-
+    </main>
 
     <footer class="footer">
         <div class="container footer-grid">

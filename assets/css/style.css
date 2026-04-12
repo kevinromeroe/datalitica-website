@@ -52,8 +52,7 @@
 .team-role-card,
 .step,
 .contact-form-wrapper,
-.case-study-visual,
-.footer-logo {
+.case-study-visual {
     position: relative;
     overflow: hidden;
     border-radius: 15px; /* conservar radio existente */
@@ -67,8 +66,7 @@
 .team-role-card::before,
 .step::before,
 .contact-form-wrapper::before,
-.case-study-visual::before,
-.footer-logo::before {
+.case-study-visual::before {
     content: "";
     position: absolute;
     left: -20%;
@@ -88,8 +86,7 @@
 .team-role-card::after,
 .step::after,
 .contact-form-wrapper::after,
-.case-study-visual::after,
-.footer-logo::after {
+.case-study-visual::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -103,8 +100,7 @@
 .team-role-card:hover,
 .step:hover,
 .contact-form-wrapper:hover,
-.case-study-visual:hover,
-.footer-logo:hover {
+.case-study-visual:hover {
     transform: translateY(-8px) translateZ(0) scale(1.006);
     box-shadow: 0 22px 44px rgba(2,6,23,0.12), inset 0 -8px 26px rgba(0,0,0,0.05);
 }
@@ -120,8 +116,7 @@
 .team-role-card[data-animate="true"],
 .step[data-animate="true"],
 .contact-form-wrapper[data-animate="true"],
-.case-study-visual[data-animate="true"],
-.footer-logo[data-animate="true"] {
+.case-study-visual[data-animate="true"] {
     will-change: transform;
     animation: liquid-wave 6s ease-in-out infinite;
 }
@@ -168,12 +163,48 @@ img {
     text-align: center;
 }
 
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
 .mt-4 {
     margin-top: 2rem;
 }
 
+.mt-5 {
+    margin-top: 3rem;
+}
+
 .mb-5 {
     margin-bottom: 3rem;
+}
+
+.text-white {
+    color: var(--color-text-light);
+}
+
+/* Skip Link (Accesibilidad) */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-secondary-accent);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border-radius: 0 0 8px 8px;
+    z-index: 10000;
+    font-weight: 700;
+    text-decoration: none;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* 3. TIPOGRAFÍA */
@@ -315,12 +346,22 @@ nav.container {
 
 .menu-toggle {
     display: none;
-    font-size: 1.8rem;
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--color-primary-dark);
-    padding: 5px;
+    padding: 8px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--color-primary-dark);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 /* 5. BOTONES Y CTAs */
@@ -388,13 +429,6 @@ nav.container {
 }
 
 /* Hero Section */
-.hero {
-    background: linear-gradient(135deg, var(--color-neutral-light) 0%, #ffffff 100%);
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    padding: 100px 0;
-}
 
 .hero-container {
     display: flex;
@@ -658,22 +692,6 @@ nav.container {
     margin-bottom: 20px;
 }
 
-/* Footer-specific overrides: keep footer logo visible despite liquid styles */
-.footer .footer-logo {
-    background: transparent !important;
-    box-shadow: none !important;
-    overflow: visible !important;
-}
-.footer .footer-logo::before,
-.footer .footer-logo::after {
-    display: none !important;
-}
-.footer .logo-footer {
-    filter: none !important;
-    max-height: 100px;
-    height: auto;
-    margin-bottom: 20px;
-}
 
 .footer h4 {
     color: var(--color-text-light);
@@ -706,6 +724,191 @@ nav.container {
     padding: 25px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
+}
+
+/* 9. CLASES PARA PÁGINAS SECUNDARIAS */
+
+/* Títulos alternativos */
+.h1-small {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+.h2-left {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary-dark);
+}
+
+/* Servicios detalle */
+.service-detail-block {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: var(--spacing-md);
+    transition: box-shadow 0.3s;
+}
+
+.service-detail-block.bg-light {
+    background-color: var(--color-neutral-light);
+}
+
+.service-detail-block:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.service-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-secondary-accent);
+    border-radius: 14px;
+    color: var(--color-text-light);
+}
+
+.service-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.service-content {
+    flex: 1;
+}
+
+.service-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.service-content ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 12px;
+}
+
+.service-content ul li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Mid-section CTA */
+.mid-section-cta {
+    padding: var(--spacing-sm) 0;
+}
+
+/* Link accent button */
+.btn-link-accent {
+    display: inline-block;
+    color: var(--color-secondary-accent);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--color-secondary-accent);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.btn-link-accent:hover {
+    color: var(--color-secondary-darker);
+    border-color: var(--color-secondary-darker);
+}
+
+/* Final CTA section */
+.final-cta {
+    padding: var(--spacing-lg) 0;
+}
+
+.final-cta p {
+    font-size: 1.15rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.9;
+}
+
+/* Contacto page */
+.contact-hero {
+    padding: var(--spacing-lg) 0;
+}
+
+.contact-details {
+    margin: var(--spacing-md) 0;
+}
+
+.contact-details p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.contact-reinforcement {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--color-text-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-visual {
+    padding: var(--spacing-md) 0;
+}
+
+.contact-image-placeholder {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Privacidad / Legal */
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-content h3 {
+    font-size: 1.4rem;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.legal-content ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 12px 0;
+}
+
+.legal-content ul li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.legal-content p {
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.last-updated {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+}
+
+/* Footer columns */
+.footer-links ul,
+.footer-legal ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact p {
+    margin-bottom: 8px;
 }
 
 /* 9. RESPONSIVIDAD (MEDIA QUERIES) */
@@ -797,11 +1000,20 @@ nav.container {
         max-height: 360px;
         object-fit: cover;
     }
+
+    .service-detail-block {
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    .h1-small {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
+        display: flex;
     }
 
     /* Header más compacto en móvil para que el logo sea más prominente */
@@ -848,16 +1060,6 @@ nav.container {
     align-items: center;
 }
 
-.hero::before,
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: transparent;
-    z-index: 1;
-    pointer-events: none;
-    display: none;
-}
 
 .hero-container {
     display: flex;
@@ -901,17 +1103,6 @@ nav.container {
 /* RESPONSIVE: mantener fondo + pseudo-elementos en móvil y ocultar la imagen inline
    para que el texto quede siempre encima de la imagen (más legible y profesional). */
 @media (max-width: 992px) {
-    /* Móvil: blur vertical (parte superior) para adaptar lectura en pantallas estrechas */
-    .hero::before {
-        display: none;
-        background: transparent;
-    }
-
-    .hero::after {
-        display: none;
-        background: transparent;
-    }
-
     .hero {
         /* mantener la imagen de fondo (la que esté indicada en .hero) */
         background-image: var(--hero-image-mobile);

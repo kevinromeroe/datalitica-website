@@ -4,10 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#001F3F">
     <title>Datalítica Colombia SAS – Analítica Avanzada</title>
 
     <meta name="description"
         content="Transformamos tus datos en crecimiento de ventas. Consultoría en Inteligencia Artificial, Business Intelligence y Análisis Predictivo para empresas en Colombia.">
+
+    <link rel="canonical" href="https://datalitica.com.co/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Datalítica Colombia SAS – Analítica Avanzada">
+    <meta property="og:description" content="Transformamos tus datos en crecimiento de ventas. Consultoría en Inteligencia Artificial, Business Intelligence y Análisis Predictivo para empresas en Colombia.">
+    <meta property="og:url" content="https://datalitica.com.co/">
+    <meta property="og:image" content="https://datalitica.com.co/assets/img/favicon-512.png">
+    <meta property="og:site_name" content="Datalítica Colombia SAS">
+    <meta property="og:locale" content="es_CO">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Datalítica Colombia SAS – Analítica Avanzada">
+    <meta name="twitter:description" content="Transformamos tus datos en crecimiento de ventas. Consultoría en IA, BI y Análisis Predictivo para empresas en Colombia.">
+    <meta name="twitter:image" content="https://datalitica.com.co/assets/img/favicon-512.png">
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
@@ -17,28 +35,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Datalítica Colombia SAS",
+        "url": "https://datalitica.com.co",
+        "logo": "https://datalitica.com.co/assets/img/logo.png",
+        "description": "Consultoría en Inteligencia Artificial, Business Intelligence y Análisis Predictivo para empresas en Colombia.",
+        "email": "comercial@datalitica.com.co",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bogotá",
+            "addressCountry": "CO"
+        },
+        "sameAs": [],
+        "areaServed": {
+            "@type": "Country",
+            "name": "Colombia"
+        },
+        "serviceType": ["Consultoría Analítica de Datos", "Business Intelligence", "Inteligencia Artificial", "Análisis Predictivo"]
+    }
+    </script>
 </head>
 
 <body>
+    <a href="#hero" class="skip-link">Ir al contenido principal</a>
     <header class="sticky-header">
         <nav class="container">
             <img src="assets/img/logo.png" alt="Datalítica Colombia SAS" class="logo">
-            <ul class="nav-links">
+            <ul class="nav-links" id="main-nav" role="navigation" aria-label="Navegación principal">
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#que-hacemos">Servicios</a></li>
                 <li><a href="#caso-uso">Casos de Uso</a></li>
                 <li><a href="#contacto-form" class="btn btn-primary-cta btn-header-cta">Agenda Sesión Gratuita</a></li>
             </ul>
-            <button class="menu-toggle">☰</button>
+            <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
         </nav>
     </header>
 
+    <main>
     <section id="hero" class="hero">
         <div class="container hero-container">
             <div class="hero-content">
                 <h1>Impulsa tus ventas con datos y haz crecer tu negocio con valor</h1>
-                <p class="subtitle">Convertimos la complejidad de tus datos en estrategias claras que disparan tus resultados. 
-                    Olvida los reportes básicos; implementamos modelos que te dicen qué hacer para vender más.</strong>Enfocado en ejecutivos, sin tecnicismos innecesarios.</p>
+                <p class="subtitle">Convertimos la complejidad de tus datos en estrategias claras que disparan tus resultados.
+                    Olvida los reportes básicos; implementamos modelos que te dicen qué hacer para vender más. Enfocado en ejecutivos, sin tecnicismos innecesarios.</p>
                 <div class="hero-ctas">
                     <a href="#contacto-form" class="btn btn-primary-cta">Agenda una sesión gratuita ahora mismo</a>
                 </div>
@@ -151,7 +199,7 @@
                 <a href="#contacto-form" class="btn btn-primary-cta">Descubre cómo aplicarlo - Agenda una sesión gratuita</a>
             </div>
             <div class="case-study-visual">
-            <img src="assets/img/HeroSecundaria.jpg" alt="Dashboard de marketing">
+            <img src="assets/img/HeroSecundaria.jpg" alt="Dashboard de marketing" loading="lazy">
             </div>
         </div>
     </section>
@@ -237,7 +285,7 @@
 
         <div class="container team-visual mt-5">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
-                alt="Equipo Datalítica colaborando">
+                alt="Equipo Datalítica colaborando" loading="lazy" width="1200" height="800">
         </div>
     </section>
 
@@ -273,6 +321,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="container footer-grid">
@@ -298,7 +347,7 @@
                 <h4>Legal</h4>
                 <ul>
                     <li><a href="privacidad.html">Política de Privacidad</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="privacidad.html">Términos y Condiciones</a></li>
                 </ul>
             </div>
         </div>
